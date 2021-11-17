@@ -23,9 +23,6 @@ public class Game {
 
     }
 
-    /**
-     * Generates food that cannot be where the snake currently is
-     */
     private void generateFood(){
         ArrayList<Integer> availableYs = new ArrayList<>();
         for (int y = 0; y <  boardHeight- 1; y++) {
@@ -49,12 +46,7 @@ public class Game {
         return new Pair(randomGenerator.nextInt(yBound), randomGenerator.nextInt(xBound));
     }
 
-    /**
-     * If snake is eating
-     *      Move snake normally
-     *      Add the last element of snake before moving to new snakes body
-     * else move normally
-     */
+ 
     public void move(){
         if(snake.getHeadCoordinates().isEqual(food)) {
             Pair lastBody = snake.getBodyAsNodes().get_tail().clone();
@@ -67,11 +59,7 @@ public class Game {
         }
     }
 
-    /**
-     * Called upon keyboard input from player
-     * Decides direction to set snakes movements to
-     * @param keyEvent
-     */
+
     public void changeDirecton(KeyEvent keyEvent){
         KeyCode keyCode = keyEvent.getCode();
         switch (keyCode){
