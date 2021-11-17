@@ -50,10 +50,8 @@ public class App extends Application {
         scene.getStylesheets().add(getClass().getResource("/main/resources/styles.css").toExternalForm());
         primaryStage.setScene(scene);
 
-        //stores all rectangles conveniently as there is no API to access GridPane by index
         rectBoard = new Rectangle[BOARDHEIGHT][BOARDWIDTH];
 
-        //set up grid and style all to background
         for (int y = 0; y < BOARDHEIGHT; y++) {
             for (int x = 0; x < BOARDWIDTH; x++) {
                 Rectangle rect = new Rectangle(RECTSIZE, RECTSIZE);
@@ -73,10 +71,7 @@ public class App extends Application {
     }
 
 
-    /**
-     * This starts the clock
-     * @param scene
-     */
+
     private void play(Scene scene) {
         clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             refreshBoard(scene);
@@ -87,10 +82,7 @@ public class App extends Application {
 
 
 
-    /**
-     *  This triggers the game.move method, updating the data model
-     *  It then re-styles the scene
-     * */
+
     public void refreshBoard(Scene scene){
         game.move();
 
