@@ -19,11 +19,7 @@ public class Snake {
         direction = Direction.RIGHT;
     }
 
-    /**
-     * Called by Game.move
-     * This updates the snakes model of Pairs - the snakes locations
-     * Works from 0,0 is top-left
-     */
+
     public void moveDirection(){
         switch (direction){
             case UP:
@@ -43,15 +39,6 @@ public class Snake {
 
     }
 
-    /**
-     * Head moves based on incriement and directions
-     *      Incriment decided by moveDirection
-     *      direction decided by keyboard input in Game.changeDirection
-     * All nodes just move to location of the previous in a chain-like pattern
-     *
-     * @param yIncriment change in y for head
-     * @param xIncriment change in x for head
-     */
     private void incrimentBody(int yIncriment, int xIncriment){
         ArrayList<Pair> nodes = body.getNodes();
         for (int i = body.size()-1; i > 0; i--) {
@@ -62,14 +49,7 @@ public class Snake {
         head.x += xIncriment;
     }
 
-    /**
-     * Checks all cases for crash
-     *      1) collides with wall
-     *      2) head collides with another part of snake
-     * @return
-     *      True => There was a collision => Game over
-     *      False => There was NOT a collision
-     */
+  
     public Boolean checkIfSnakeCrashed(){
         return body.collision(boardWidth, boardHeight);
     }
